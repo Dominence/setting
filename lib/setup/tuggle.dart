@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:settings/setup/app.dart';
 import 'package:settings/setup/display.dart';
 import 'package:settings/setup/hotspot.dart';
+import 'package:settings/setup/location.dart';
 import 'package:settings/setup/lockscreen.dart';
 import 'package:settings/setup/loggins.dart';
+import 'package:settings/setup/more.dart';
 import 'package:settings/setup/piracy.dart';
 import 'package:settings/setup/sim.dart';
 import 'package:settings/setup/sound.dart';
@@ -144,6 +147,13 @@ class _tuggleState extends State<tuggle> {
               icon: Icons.sensors_outlined,
             ),
             listitems(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => more(),
+                    ));
+              },
               title: "More connections",
               color: Color(0xffEBB751),
               icon: Icons.insert_link_outlined,
@@ -216,6 +226,13 @@ class _tuggleState extends State<tuggle> {
               icon: Icons.post_add_rounded,
             ),
             listitems(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => App(),
+                    ));
+              },
               title: "App management",
               icon: Icons.bookmarks_outlined,
               color: Color(0xff65BC6C),
@@ -233,6 +250,13 @@ class _tuggleState extends State<tuggle> {
               color: Color(0xff67BD68),
             ),
             listitems(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Location(),
+                    ));
+              },
               title: "Location ",
               icon: Icons.room_outlined,
               color: Color(0xff3A85CD),

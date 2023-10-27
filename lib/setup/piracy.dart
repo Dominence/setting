@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Piracy extends StatelessWidget {
+class Piracy extends StatefulWidget {
   const Piracy({Key? key}) : super(key: key);
 
+  @override
+  State<Piracy> createState() => _PiracyState();
+}
+
+class _PiracyState extends State<Piracy> {
+  bool ischanged = false;
+  bool  changed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,13 +44,41 @@ class Piracy extends StatelessWidget {
             title: 'Control app access to your data',
             text: 'Permission manager',
           ),
-          Listup(
-            title: 'For all apps and services',
-            text: 'Microphone  access',
+          ListTile(
+            title:Text('Microphone  access',),
+            subtitle: Text('For all apps and services',
+                style: TextStyle(fontSize: 13, color: Colors.white30)),
+            trailing: SizedBox(
+              child: Switch(
+                activeColor: Colors.green,
+                thumbColor: MaterialStatePropertyAll(Colors.grey),
+                splashRadius: 9,
+                value: ischanged,
+                onChanged: (value) {
+                  setState(() {
+                    ischanged = !ischanged;
+                  });
+                },
+              ),
+            ),
           ),
-          Listup(
-            title: 'Display characters briefly as you type',
-            text: 'Show passwords',
+          ListTile(
+            title:Text('Show passwords'),
+            subtitle: Text('Display characters briefly as you type',
+                style: TextStyle(fontSize: 13, color: Colors.white30)),
+            trailing: SizedBox(
+              child: Switch(
+                activeColor: Colors.green,
+                thumbColor: MaterialStatePropertyAll(Colors.grey),
+                splashRadius: 9,
+                value: changed,
+                onChanged: (value) {
+                  setState(() {
+                    changed = !changed;
+                  });
+                },
+              ),
+            ),
           ),
           Listup(
             text: "Lock screen notificaton display Settings",

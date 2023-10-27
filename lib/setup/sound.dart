@@ -15,7 +15,8 @@ class _SoundState extends State<Sound> {
   bool ischanged = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(elevation: 0,
+    return Scaffold(
+      appBar: AppBar(elevation: 0,
       backgroundColor: Colors.black,
       leading: IconButton(onPressed: () {
         Navigator.pop(context);
