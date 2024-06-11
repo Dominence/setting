@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:settings/drawer/bottom_sheet.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class Storage extends StatelessWidget {
   const Storage({Key? key}) : super(key: key);
@@ -30,19 +31,22 @@ class Storage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 80, top: 30),
-            child: CircleAvatar(
-              backgroundColor: Colors.white10.withOpacity(0.2),
-              radius: 98,
-              child: CircleAvatar(
-                backgroundColor: Colors.black,
-                radius: 64,
-                child: Text("0%",
-                    style: TextStyle(color: Colors.white, fontSize: 27)),
-              ),
-            ),
+          Center(
+            child: CircularPercentIndicator(radius: 64,
+            backgroundColor: Colors.white10.withOpacity(0.2),
+            animation: true,
+            lineWidth: 20,
+            animationDuration: 5000,
+            circularStrokeCap: CircularStrokeCap.round,
+            percent: 0.56,
+            progressColor: Colors.yellow,
+            center: const Text('56%',
+             style: TextStyle(
+               fontSize: 25,
+               color: Colors.white
+             ),),),
           ),
+
           Row(
             children: [
               Padding(
@@ -172,7 +176,10 @@ class Storage extends StatelessWidget {
               height: 33,
               child: GestureDetector(
                 onTap: () {
-                  showModalBottomSheet(context: context, builder: (context) => Bottomsheet(),);
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => Bottomsheet(),
+                  );
                 },
                 child: Center(
                   child: Text(
@@ -181,7 +188,8 @@ class Storage extends StatelessWidget {
                 ),
               ),
               decoration: BoxDecoration(
-                  color: Color(0xff40B927), borderRadius: BorderRadius.circular(20)),
+                  color: Color(0xff40B927),
+                  borderRadius: BorderRadius.circular(20)),
             ),
           ),
         ],
